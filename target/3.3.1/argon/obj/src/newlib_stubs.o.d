@@ -1,4 +1,4 @@
-/Users/gashongore/Desktop/KumvaInsights/rain_rg15_serial/rg15_serial/target/3.3.1/argon//obj/./src/newlib_stubs.o: \
+/Users/gashongore/Desktop/Farmsense/RainSensor_RG15_Serial/target/3.3.1/argon//obj/./src/newlib_stubs.o: \
  src/newlib_stubs.cpp \
  ../../../modules/shared/nRF52840/inc/user-part/newlib_stubs.inc \
  /Users/gashongore/.particle/toolchains/gcc-arm/10.2.1/arm-none-eabi/include/sys/types.h \

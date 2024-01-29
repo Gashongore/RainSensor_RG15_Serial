@@ -1,4 +1,4 @@
-/Users/gashongore/Desktop/KumvaInsights/rain_rg15_serial/rg15_serial/target/3.3.1/argon//obj/./src/user_export.o: \
+/Users/gashongore/Desktop/Farmsense/RainSensor_RG15_Serial/target/3.3.1/argon//obj/./src/user_export.o: \
  src/user_export.c \
  ../../../modules/shared/nRF52840/inc/user_part_export.c \
  ../../../modules/shared/nRF52840/inc/module_user_init.h \

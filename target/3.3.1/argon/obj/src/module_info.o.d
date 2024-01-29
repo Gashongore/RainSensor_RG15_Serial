@@ -1,4 +1,4 @@
-/Users/gashongore/Desktop/KumvaInsights/rain_rg15_serial/rg15_serial/target/3.3.1/argon//obj/./src/module_info.o: \
+/Users/gashongore/Desktop/Farmsense/RainSensor_RG15_Serial/target/3.3.1/argon//obj/./src/module_info.o: \
  src/module_info.c ../../../dynalib/inc/module_info.inc \
  ../../../dynalib/inc/module_info.h ../../../services/inc/static_assert.h \
  /Users/gashongore/.particle/toolchains/gcc-arm/10.2.1/arm-none-eabi/include/assert.h \

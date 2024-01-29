@@ -2,15 +2,15 @@
 //       THIS IS A GENERATED FILE - DO NOT EDIT       //
 /******************************************************/
 
-#line 1 "/Users/gashongore/Desktop/KumvaInsights/rain_rg15_serial/rg15_serial/src/rg15_serial.ino"
+#line 1 "/Users/gashongore/Desktop/Farmsense/RainSensor_RG15_Serial/src/rg15_serial.ino"
 #include "Particle.h"
 #include <stdlib.h>
-#include<string.h>
+#include <string.h>
 
 // Prototypes and System Mode calls
 void setup();
 void loop();
-#line 6 "/Users/gashongore/Desktop/KumvaInsights/rain_rg15_serial/rg15_serial/src/rg15_serial.ino"
+#line 6 "/Users/gashongore/Desktop/Farmsense/RainSensor_RG15_Serial/src/rg15_serial.ino"
 SYSTEM_MODE(SEMI_AUTOMATIC);                                                                     // This will enable user code to start executing automatically.
 SYSTEM_THREAD(ENABLED);                                                                     // Means my code will not be held up by Particle processes.
 STARTUP(System.enableFeature(FEATURE_RESET_INFO));
@@ -24,9 +24,12 @@ STARTUP(System.enableFeature(FEATURE_RESET_INFO));
 */
 
 
-float acc_f=0, eventAcc_f=0, totalAcc_f=0, rInt_f=0;
+double acc_f=0;
+double eventAcc_f=0;
+double totalAcc_f=0;
+double rInt_f=0;
 
-
+SerialLogHandler logHandler;
 
 void setup()
 {
@@ -34,6 +37,8 @@ Serial1.begin(9600,SERIAL_8N1);
   
 Serial1.write('c');
 Serial1.write('\n');
+
+Serial.begin(9600);
 
 }
 
@@ -54,10 +59,24 @@ totalAcc_f=atof(totalAcc);
 rInt_f=atof(rInt);
 
 
+/* 
 Particle.publish("Accumulated Rain",acc);
 Particle.publish("Amount of rain for this event",eventAcc);
 Particle.publish("Total amount of rain",totalAcc);
 Particle.publish("Current rain intensity",rInt);
+*/
+
+Serial.print("Accumulated Rain");
+Serial.println(acc_f);
+
+Serial.print("Amount of rain for this event");
+Serial.println(eventAcc_f);
+
+Serial.print("Total amount of rain");
+Serial.println(totalAcc_f);
+
+Serial.print("Current rain intensity");
+Serial.println(rInt_f);
 
 }
 
