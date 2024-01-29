@@ -34,7 +34,53 @@ Serial.begin(9600);
 
 }
 
+void loop(){
+     readRainSensor();
 
+     delay(3000);
+  
+}
+void readRainSensor(){
+  String response;
+  while (response.length() == 0) {
+    response = Serial1.readStringUntil('\n');
+    // Optionally, add a small delay here to avoid continuous reading
+    delay(100);
+  }
+  if(response.startsWith("Acc")) {
+    char acc[7], eventAcc[7], totalAcc[7], rInt[7], unit[4];
+    sscanf(response.c_str(), "%*s %6s %[^,] , %*s %6s %*s %*s %6s %*s %*s %6s", acc, unit, eventAcc, totalAcc, rInt);
+    
+    Serial.print("Accumulation: ");
+    Serial.print(atof (acc),3);  
+    Serial.println(unit);
+    Serial.print("Event Accumulation: ");
+    Serial.print(atof (eventAcc),3);  
+    Serial.println(unit);
+    Serial.print("Total Accumulation: ");
+    Serial.print(atof (totalAcc),3);  
+    Serial.println(unit);
+    Serial.print("IPH: ");
+    Serial.print(atof (rInt), 3);
+    Serial.println(" IPH\n");
+
+    // do we need to flash the serial??
+
+
+    
+     // Publish the values as events
+    // sensorData.totalAcc = atof(totalAcc);
+    // sensorData.event_Accumulation = atof(eventAcc);
+    // // sensorData.totalAcc = atof(totalAcc);
+    // Particle.publish("Accumulation", String(atof(acc), 3), PRIVATE);
+    // Particle.publish("Event Accumulation", String(atof(eventAcc), 3), PRIVATE);
+    // Particle.publish("Total Accumulation", String(atof(totalAcc), 3), PRIVATE);
+    // Particle.publish("IPH", String(atof(rInt), 3), PRIVATE);
+    // Particle.publish("IPH",String(atof (rInt), 3),PRIVATE);
+  }
+}
+
+/*
 void loop() {
  
 
@@ -51,12 +97,12 @@ totalAcc_f=atof(totalAcc);
 rInt_f=atof(rInt);
 
 
-/* 
-Particle.publish("Accumulated Rain",acc);
-Particle.publish("Amount of rain for this event",eventAcc);
-Particle.publish("Total amount of rain",totalAcc);
-Particle.publish("Current rain intensity",rInt);
-*/
+
+//Particle.publish("Accumulated Rain",acc);
+//Particle.publish("Amount of rain for this event",eventAcc);
+//Particle.publish("Total amount of rain",totalAcc);
+//Particle.publish("Current rain intensity",rInt);
+
 
 Serial.print("Accumulated Rain");
 Serial.println(acc_f);
@@ -75,4 +121,4 @@ Serial.println(rInt_f);
   delay(3000);
 }
 
-
+*/
